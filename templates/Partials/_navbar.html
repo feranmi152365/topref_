@@ -1,0 +1,43 @@
+ <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center  header-transparent " style="background: rgba(42, 44, 57, 0.9);">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1 class="text-light"><a href="{% url 'index'%}"><span style="color: #fc7c1f;">TOPREF INTEGRITY CONCEPT</span></a></h1>
+      </div>
+
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li
+             {% if '/' == request.path %}
+                class="nav-item active mr-3"
+                {% else %}
+                 class="nav-item mr-3"
+                 {% endif %}
+           ><a href="{% url 'index'%}"><span style="color: #fc7c1f;">Home</span> </a></li>
+          <li><a href="#about"><span style="color: #fc7c1f;">About</span></a>
+          <li><a href="#product"><span style="color: #fc7c1f;">Product</span></a>
+            {% comment %} <ul>
+              <li><a href="{% url 'jeans'%}">Jeans</a></li>
+              <li><a href="{% url 'polo'%}">Polo</a></li>
+              <li><a href="{% url 't_shirts'%}">T-shirts</a></li>
+              <li><a href="{% url 'suites'%}">Suites</a></li>
+              <li><a href="{% url 'shirts'%}">Shirts</a></li>
+            </ul> {% endcomment %}
+          </li>
+
+          {% comment %} <li  {% if 'about' in request.path %}
+                class="nav-item active mr-3"
+                {% else %}
+                 class="nav-item mr-3"
+                 {% endif %}
+                 ><a href="{% url 'signin'%}"> <span style="color: #fc7c1f;">Sign in/sign up</span></a></li>
+        </ul>  {% endcomment %}
+        <li><a href="#faq"><span style="color: #fc7c1f;">FaQ</span></a>
+         <li><a href="#contact"><span style="color: #fc7c1f;">Contact</span></a>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+  <!-- End Header --> 

@@ -1,0 +1,68 @@
+  {% extends 'base.html' %}
+ {% block content %}
+ <!-- <section class="cta"> -->
+        <div class="container  mt-5">
+            <br> <br>
+            <div class="section-title " data-aos="fade-up">
+              <h2></h2>
+              <p>shirts store</p>
+            </div>
+            <section class="team">
+              <div class="row ">
+              {% if shirts %}
+                  {% for shirt in shirts %}
+                     <div class="col-xl-3 col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                  <div class="member">
+                    <img src="{{shirt.image.url}}" style="width:616px;height:220px;" class="img-fluid" alt="">
+                    <div class="member-info">
+                      <div class="member-info-content">
+                        <h4>{{shirt.name}}</h4>
+                        <span>#{{shirt.price}}</span>
+                      </div>
+                      <div class="social">
+      
+                        <a href=""><i class="icofont-cart"></i></a>
+                        <a href=""><i class="icofont-pay"></i></a>
+      
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                  {% endfor %}
+
+              {% else %}
+
+              {% endif %}
+
+
+              </div>
+              <div class="blog-pagination">
+        {% if shirts.has_other_pages %}
+             <ul class="pagination justify-content-center mt-3">
+             {% if shirts.has_previous %}
+                    <li class="page-item"><a href="?page={{shirts.previous_page_number}}" class="page-link">&laquo;</a></li>
+             {% else %}
+                    <li class="page-item disabled"><a class="page-link">&laquo;</a></li> 
+             {% endif %}
+         {% for i in shirts.paginator.page_range %}
+          {% if shirts.number == i %}
+              <li class="page-item active"><a class="page-link">{{i}}</a></li>
+              {% else %}
+              <li class="page-item"><a href="?page={{i}}" class="page-link">{{i}}</a></li>
+          {% endif %}
+        {% endfor %}
+
+         {% if shirts.has_next %}
+                    <li class="page-item"><a href="?page={{shirts.next_page_number}}" class="page-link">&raquo;</a></li>
+             {% else %}
+                    <li class="page-item disabled"><a class="page-link">&raquo;</a></li> 
+             {% endif %}
+
+           </ul>
+      {% endif %}
+        </div> 
+        <br> <br> 
+      
+          </div>
+          </section><!-- End Cta Section -->
+          {% endblock %}
